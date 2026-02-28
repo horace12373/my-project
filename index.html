@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>致远高中 · 私立名校官网</title>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f9fafc;
+      color: #1e2b3c;
+      line-height: 1.5;
+    }
+
+   
+    .wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+      background-color: white;
+      box-shadow: 0 0 40px rgba(0,0,0,0.03);
+    }
+
+   
+    .header {
+      background: linear-gradient(95deg, #0a2f5a 0%, #134578 100%);
+      color: white;
+      padding: 0.9rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 4px solid #e3b138;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logo-icon {
+      font-size: 2.5rem;
+      color: #e3b138;
+    }
+
+    .school-name h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .school-name p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+
+    .header-right {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      background: rgba(255,255,255,0.15);
+      border-radius: 40px;
+      padding: 0.3rem 0.3rem 0.3rem 1rem;
+      display: flex;
+      align-items: center;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 0.95rem;
+      padding: 0.4rem 0;
+      width: 170px;
+      outline: none;
+    }
+
+    .search-box input::placeholder {
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+    }
+
+    .search-box button {
+      background: #e3b138;
+      border: none;
+      border-radius: 40px;
+      width: 36px;
+      height: 36px;
+      color: #0a2f5a;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .search-box button:hover {
+      background: #f0c35c;
+    }
+
+    .user-link {
+      display: flex;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    .user-link a {
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px dotted transparent;
+    }
+
+    .user-link a:hover {
+      border-bottom-color: #e3b138;
+    }
+
+    
+    .nav-bar {
+      background-color: white;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02);
+      padding: 0.2rem 2rem;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.3rem 1.8rem;
+      list-style: none;
+    }
+
+    .nav-item {
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .nav-item a {
+      display: inline-block;
+      padding: 0.8rem 0;
+      color: #1e3a5f;
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-item a:hover, .nav-item.active a {
+      border-bottom-color: #e3b138;
+      color: #0a2f5a;
+      font-weight: 600;
+    }
+
+    
+    .mobile-menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: #1e3a5f;
+      cursor: pointer;
+    }
+
+   
+    .hero {
+      background: linear-gradient(107deg, #dbe4ee 0%, #f1f5fa 100%);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-text {
+      flex: 1 1 300px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.3rem;
+      font-weight: 600;
+      color: #0a2f5a;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #2c405c;
+      max-width: 600px;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn {
+      background-color: #134578;
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 8px 16px rgba(19, 69, 120, 0.2);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #0a2f5a;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      flex: 0 0 300px;
+      text-align: center;
+      font-size: 8rem;
+      color: #134578;
+      opacity: 0.7;
+    }
+
+   
+    .modules-section {
+      padding: 2.5rem 2rem;
+      background: white;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #0a2f5a;
+      border-left: 8px solid #e3b138;
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .module-card {
+      background: #f8faff;
+      border-radius: 24px;
+      padding: 1.8rem 1.2rem;
+      transition: all 0.2s ease;
+      border: 1px solid #eef2f6;
+      text-align: center;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .module-card:hover {
+      transform: translateY(-6px);
+      border-color: #cbd6e6;
+      box-shadow: 0 16px 28px rgba(0, 35, 70, 0.08);
+      background: white;
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      color: #134578;
+      margin-bottom: 0.8rem;
+    }
+
+    .module-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #0a2f5a;
+    }
+
+    .module-card p {
+      color: #4a5b70;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    
+    .news-area {
+      padding: 2rem 2rem 3rem;
+      background-color: #f0f4fa;
+    }
+
+    .news-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .news-list {
+      flex: 2 1 350px;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #d9e1ec;
+    }
+
+    .news-date {
+      min-width: 65px;
+      font-weight: 600;
+      color: #e3b138;
+    }
+
+    .news-title {
+      color: #1e3a5f;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .news-title:hover {
+      text-decoration: underline;
+    }
+
+    .quick-links {
+      flex: 1 1 220px;
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 12px 24px rgba(0, 34, 68, 0.05);
+    }
+
+    .quick-links h4 {
+      font-size: 1.3rem;
+      color: #0a2f5a;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e3b138;
+      padding-bottom: 0.5rem;
+    }
+
+    .quick-links ul {
+      list-style: none;
+    }
+
+    .quick-links li {
+      margin: 0.8rem 0;
+    }
+
+    .quick-links a {
+      color: #1e3a5f;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .quick-links i {
+      color: #e3b138;
+      width: 20px;
+    }
+
+    
+    .edu-row {
+      background: white;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      border-top: 1px solid #e2e9f2;
+    }
+
+    .edu-block {
+      flex: 1 1 200px;
+      background: #eef3fc;
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    .edu-block i {
+      color: #e3b138;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    
+    .footer {
+      background: #0e2a46;
+      color: #cddcee;
+      padding: 2.5rem 2rem 1.5rem;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-about {
+      max-width: 300px;
+    }
+
+    .footer-about h4 {
+      color: white;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+
+    .footer-col p {
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a {
+      color: #b0c6dd;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .footer-col a:hover {
+      color: #e3b138;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #264a6e;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    
+    @media screen and (max-width: 800px) {
+      .header {
+        padding: 1rem;
+      }
+      .school-name h1 {
+        font-size: 1.5rem;
+      }
+      .logo-icon {
+        font-size: 2rem;
+      }
+      .header-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+      }
+      .search-box {
+        flex: 1;
+      }
+      .search-box input {
+        width: 100%;
+      }
+      .nav-bar {
+        padding: 0 1rem;
+      }
+      .nav-menu {
+        gap: 0.2rem 1rem;
+      }
+      .nav-item a {
+        padding: 0.6rem 0;
+        font-size: 0.95rem;
+      }
+      .hero {
+        padding: 2rem 1rem;
+      }
+      .hero-text h2 {
+        font-size: 1.8rem;
+      }
+      .hero-image {
+        flex-basis: 180px;
+        font-size: 6rem;
+      }
+      .modules-section, .news-area, .edu-row {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .card-grid {
+        gap: 1rem;
+      }
+      .footer-top {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .nav-menu {
+        justify-content: center;
+      }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-image {
+        margin-top: 1rem;
+      }
+      .news-item {
+        flex-wrap: wrap;
+      }
+      .quick-links {
+        padding: 1.2rem;
+      }
+    }
+
+    
+    .module-card {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+ 
+  <header class="header">
+    <div class="logo-area">
+      <i class="fas fa-landmark logo-icon"></i>
+      <div class="school-name">
+        <h1>致远高级中学</h1>
+        <p>ZHIYUAN PRIVATE HIGH SCHOOL · 卓越 自律 创新</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <input type="text" placeholder="搜索..." aria-label="搜索">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div class="user-link">
+        <a href="#"><i class="far fa-user"></i> 校友</a>
+        <a href="#"><i class="fas fa-lock"></i> 内网</a>
+      </div>
+    </div>
+  </header>
+
+  
+  <nav class="nav-bar">
+    <ul class="nav-menu">
+      <li class="nav-item active"><a href="#">网站首页</a></li>
+      <li class="nav-item"><a href="#">德育之窗</a></li>
+      <li class="nav-item"><a href="#">教学之窗</a></li>
+      <li class="nav-item"><a href="#">学科奥赛</a></li>
+      <li class="nav-item"><a href="#">艺术教育</a></li>
+      <li class="nav-item"><a href="#">社会实践</a></li>
+      <li class="nav-item"><a href="#">教育发展</a></li>
+      <li class="nav-item"><a href="#">成绩查询</a></li>
+    </ul>
+  </nav>
+
+  
+  <section class="hero">
+    <div class="hero-text">
+      <h2>培养具有国际视野的现代人</h2>
+      <p>河北衡水中学教育理念 · 致远高中融合创新，德育为先，奥赛与艺术并重，成就每一位学子的卓越未来。</p>
+      <a href="#" class="btn">预约参观 <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="hero-image">
+      <i class="fas fa-graduation-cap"></i>
+    </div>
+  </section>
+
+  
+  <section class="modules-section">
+    <h2 class="section-title">快速通道 · 八大模块</h2>
+    <div class="card-grid">
+      
+      <a href="#" class="module-card">
+        <i class="fas fa-home card-icon"></i>
+        <h3>网站首页</h3>
+        <p>最新资讯、公告、校园要闻</p>
+      </a>
+      <a href="#" class="module-card">
+        <i class="fas fa-heart card-icon"></i>
+        <h3>德育之窗</h3>
+        <p>品格教育 · 班主任工作 · 国旗下讲话</p>
+      </a>
+      <a href="#" class="module-card">
+        <i class="fas fa-chalkboard-teacher card-icon"></i>
+        <h3>教学之窗</h3>
+        <p>课程改革 · 名师风采 · 教学资源</p>
+      </a>
+      <a href="#" class="module-card">
+        <i class="fas fa-flask card-icon"></i>
+        <h3>学科奥赛</h3>
+        <p>数理化生信竞赛 · 金牌之路</p>
+      </a>
+      <a href="#" class="module-card">
+        <i class="fas fa-palette card-icon"></i>
+        <h3>艺术教育</h3>
+        <p>美术·音乐·舞蹈·戏剧，绽放才华</p>
+      </a>
+      <a href="#" class="module-card">
+        <i class="fas fa-hiking card-icon"></i>
+        <h3>社会实践</h3>
+        <p>研学·志愿者·职业体验</p>
+      </a>
+      <a href="#" class="module-card">
+        <i class="fas fa-chart-line card-icon"></i>
+        <h3>教育发展</h3>
+        <p>教师成长·科研·合作交流</p>
+      </a>
+      <a href="#" class="module-card">
+        <i class="fas fa-clipboard-list card-icon"></i>
+        <h3>成绩查询</h3>
+        <p>考试结果 · 学业分析 · 在线查询</p>
+      </a>
+    </div>
+  </section>
+
+  
+  <section class="news-area">
+    <div class="news-flex">
+      <div class="news-list">
+        <h3 class="section-title" style="margin-bottom:1rem; font-size:1.8rem;">📰 校园新闻</h3>
+        <div class="news-item">
+          <span class="news-date"><i class="far fa-calendar-alt"></i> 02-28</span>
+          <a href="#" class="news-title">【德育之窗】高一年级“责任与担当”主题班会评比</a>
+        </div>
+        <div class="news-item">
+          <span class="news-date"><i class="far fa-calendar-alt"></i> 02-27</span>
+          <a href="#" class="news-title">【教学之窗】语文特级教师示范课：整本书阅读教学</a>
+        </div>
+        <div class="news-item">
+          <span class="news-date"><i class="far fa-calendar-alt"></i> 02-26</span>
+          <a href="#" class="news-title">【学科奥赛】5人入选河北省数学奥林匹克省队</a>
+        </div>
+        <div class="news-item">
+          <span class="news-date"><i class="far fa-calendar-alt"></i> 02-25</span>
+          <a href="#" class="news-title">【艺术教育】合唱团获全市中小学艺术展演金奖</a>
+        </div>
+        <div class="news-item">
+          <span class="news-date"><i class="far fa-calendar-alt"></i> 02-24</span>
+          <a href="#" class="news-title">【社会实践】高二学子走进科技园，体验AI前沿</a>
+        </div>
+      </div>
+      <div class="quick-links">
+        <h4><i class="fas fa-link"></i> 常用查询</h4>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> 成绩查询系统</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> 校本选修课表</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> 奥赛集训安排</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> 德育评分公示</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> 艺术特长生报名</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="edu-row">
+    <div class="edu-block">
+      <i class="fas fa-chalkboard"></i>
+      <h3 style="margin: 0.5rem 0;">教育发展</h3>
+      <p>教师海外研修、京津冀名校联盟、课程开发工作坊，推动教育创新。</p>
+      <a href="#" style="color:#134578; font-weight:600; text-decoration: none;">了解详情 →</a>
+    </div>
+    <div class="edu-block">
+      <i class="fas fa-file-alt"></i>
+      <h3 style="margin: 0.5rem 0;">成绩查询</h3>
+      <p>期中/期末考试、学业水平测试、个性化报告，一键查询。</p>
+      <a href="#" style="color:#134578; font-weight:600; text-decoration: none;">立即查询 →</a>
+    </div>
+    <div class="edu-block">
+      <i class="fas fa-hand-holding-heart"></i>
+      <h3 style="margin: 0.5rem 0;">校友捐赠</h3>
+      <p>支持母校教育发展，助力学弟学妹成长。</p>
+      <a href="#" style="color:#134578; font-weight:600; text-decoration: none;">参与项目</a>
+    </div>
+  </section>
+
+  
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-about">
+        <h4>致远高中</h4>
+        <p>河北省示范性私立高中，借鉴衡水中学管理模式，注重品格与创新，打造卓越教育品牌。</p>
+        <p style="margin-top: 1rem;"><i class="fas fa-map-marker-alt"></i> 河北省·廊坊市开发区</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <p>模块导航</p>
+          <ul>
+            <li><a href="#">网站首页</a></li>
+            <li><a href="#">德育之窗</a></li>
+            <li><a href="#">教学之窗</a></li>
+            <li><a href="#">学科奥赛</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p>特色培养</p>
+          <ul>
+            <li><a href="#">艺术教育</a></li>
+            <li><a href="#">社会实践</a></li>
+            <li><a href="#">教育发展</a></li>
+            <li><a href="#">成绩查询</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p>服务支持</p>
+          <ul>
+            <li><a href="#">招生信息</a></li>
+            <li><a href="#">教师招聘</a></li>
+            <li><a href="#">校友平台</a></li>
+            <li><a href="#">联系学校</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2026 致远高级中学 版权所有 | 隐私条款 | 建议使用 Chrome / Safari 访问</p>
+    </div>
+  </footer>
+</div>
+
+
+<script>
+  (function() {
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        
+        navItems.forEach(n => n.classList.remove('active'));
+        this.classList.add('active');
+        
+        
+        
+       
+      });
+    });
+
+   
+    const cards = document.querySelectorAll('.module-card');
+    cards.forEach((card, index) => {
+      card.addEventListener('click', (e) => {
+        
+        
+        const cardTitle = card.querySelector('h3')?.innerText || '';
+        navItems.forEach(n => {
+          const linkText = n.innerText.trim();
+          if (linkText === cardTitle) {
+            navItems.forEach(nav => nav.classList.remove('active'));
+            n.classList.add('active');
+          }
+        });
+       
+        if (cardTitle === '网站首页') {
+          navItems.forEach(n => n.classList.remove('active'));
+          document.querySelector('.nav-item.active')?.classList.remove('active');
+          navItems[0].classList.add('active');
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
